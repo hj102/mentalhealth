@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: blanchedalmond;
+        }
+        .main{
+            margin: auto;
+            height: 100%;
+            width: 100vw;
+            font-size: 25px;
+        }
+        .container-fluid{
+            text-align: center;
+            max-width: 330px;
+            padding: 15px;
+            position: absolute;
+            top: 35%;
+            left: 40%;
+        
+        }
+        .heading , .check, .submission{
+            padding: 8px;
+            margin: 10px 10px;
+        }
+        input[type="email"] {
+            margin-bottom: -1px;
+        }
+        input[type="password"] {
+            margin-top: -1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="heading">
+                <img src="/logo.jpg" alt=""  height="100px" width="100px">
+                <h2>Sign-in User</h2>
+
+            </div>
+            <div class="main-part">
+                <label for="email"></label>
+                <input type="email" id="email" placeholder="name@gmail.com">
+                <br>
+                <label for="password"></label>
+                <input type="password" id="password" placeholder="password">
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="check">
+                <label for="check">Remember Me</label>
+                
+            </div>
+            <div class="submission">
+                <button type="submit">Submit </button>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+</body>
+</html>

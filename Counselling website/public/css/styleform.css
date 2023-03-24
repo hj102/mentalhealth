@@ -1,0 +1,29 @@
+body{
+    background-image: url(https://tse2.explicit.bing.net/th?id=OIP.FcqYnC8IbF0c1ee959YeEQHaEc&pid=Api&P=0);
+    color: yellow;
+}
+div.main{
+    height: 1000px;
+    width: 400px;
+    margin: 100px auto 0px auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 5px;
+
+}
+.head{
+    font-size: larger;
+    font-weight: bolder;
+}
+.detailss{
+    margin: 5px;
+    font-size: 25px;
+}
+.button{
+    margin: 2px 5px 2px 5px;
+    padding: 5px;
+}
