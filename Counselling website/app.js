@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+const mysql = require('mysql')
 var app=express();
 var bodyParser = require('body-parser');
 app.use(express.static('public'));
@@ -11,21 +12,35 @@ const connection = mysql.createConnection({
     password: 'Babo$@123',
     database: 'mytable'
   });
+  try {
+    connection.connect();
+    console.log('Database connected');
+} 
+  catch (error) {
+    console.log('Error connecting to database', error);
+}
   
-  connection.connect();
-  
-  app.get('/get-users',(req,res)=>{
-  
-    connection.query('SELECT username FROM Users where username=?',['hj123'], (error,results)=>{
-      if (error) throw error
+  // app.get('/get-users',(req,res)=>{
+  //   connection.query('SELECT username FROM Users where username=?',['hj123'], (error,results)=>{
+  //     if (error) throw error
+  //     mod_res = JSON.parse(JSON.stringify(results))
+  //     req.session.data = mod_res[0].username
+  //     var temp;
+  //     console.log(temp)
+  //     res.send(results);
+  //   })
+  // })
+
+  app.post('/signin-user',(req,res)=>{
+    const name= req.body.username;
+    const password= req.body.password;
+    connection.query('SELECT FROM Users WHERE username=? and password=?', [username,password],(error,results)=>{
+      if(error) throw error
       mod_res = JSON.parse(JSON.stringify(results))
       req.session.data = mod_res[0].username
-      var temp;
-      console.log(temp)
-      res.send(results);
+      res.send(results)
     })
   })
-  
   app.post('/post-users',(req,res)=>{
     const name= req.body.username;
     const Age=req.body.Age
@@ -57,12 +72,7 @@ const connection = mysql.createConnection({
     res.send(results);
     })
   })
-try {
-    connection.connect();
-    console.log('Database connected');
-} catch (error) {
-    console.log('Error connecting to database', error);
-}
+
 
 
 app.post('/signup/therapist', (req, res) =>{
@@ -80,8 +90,6 @@ app.post('/signup/therapist', (req, res) =>{
         res.send(result);
     });
 });
-
-
 app.get('/therapist', (req, res) => {
     connection.query("SELECT * FROM Therapist", (error, result) => {
         if(error) throw error;
@@ -111,15 +119,7 @@ app.get('/login/therapist', async (req, res) => {
     });
 })
 
-
-
 const PORT = process.env.PORT || 3200;
 app.listen(PORT, function(){
     console.log(`Server running on port ${PORT}`);
 });
-app.listen(3000,function(){
-    console.log("3000");
-});
-
-
-
